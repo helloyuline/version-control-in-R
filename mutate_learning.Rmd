@@ -1,0 +1,28 @@
+---
+title: "mutate_learning"
+output: html_document
+---
+
+```{r}
+msleep%>%
+  mutate(brain_wt_under=ifelse(brainwt<1,"YeeHa","NA"))
+```
+
+```{r}
+msleep%>%
+mutate_all(tolower)
+```
+```{r}
+msleep%>%
+mutate_all(toupper)
+```
+```{r}
+msleep%>%
+mutate_all(~ paste(., "//n"))
+```
+```{r}
+library(stringr)
+msleep%>%
+mutate_all(~ str_replace_all(., "//n", ""))
+```
+
